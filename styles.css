@@ -1,0 +1,304 @@
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Deep Luxury Royal Amethyst (Unique Gradient) */
+  background: linear-gradient(135deg, #0D0B21 0%, #1A1333 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: #E2E8F0;
+}
+
+/* ── Container ── */
+.container {
+  /* Translucent Velvet Obsidian */
+  background: #231B42; 
+  border: 1px solid #3E2F70; /* Glowing border frame */
+  border-radius: 24px; /* Soft premium corners */
+  padding: 2.5rem 2.25rem;
+  max-width: 480px;
+  width: 100%;
+  /* Dual ambient neon shadow glow */
+  box-shadow: 0 25px 50px -12px rgba(13, 11, 33, 0.7),
+              0 0 30px rgba(236, 72, 153, 0.08);
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.header h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.header h1 em {
+  font-style: italic;
+  /* Hot Neon Pink/Rose highlight for extreme attraction */
+  color: #ddd9da; 
+  text-shadow: 0 0 12px rgba(244, 63, 94, 0.3);
+}
+
+.header p {
+  font-size: 14px;
+  color: #A78BFA; /* Lavender text instead of gray */
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+/* ── Input Grid ── */
+.dob-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-group label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b9a4a7; /* Vibrant labels */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.field-group input,
+.field-group select {
+  width: 100%;
+  height: 52px;
+  /* Deep void background for inputs */
+  background: #140E28;
+  border: 2px solid #3E2F70;
+  border-radius: 12px;
+  color: #F8FAFC;
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding: 0;
+  outline: none;
+  transition: all 0.25s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.field-group select {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  padding: 0 36px 0 16px;
+  /* Glowing Lavender Arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23A78BFA' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+/* Interactive States */
+.field-group input:focus,
+.field-group select:focus {
+  border-color: #EC4899; /* Electric Pink Focus Border */
+  box-shadow: 0 0 15px rgba(236, 48, 153, 0.25);
+  background: #1A1235;
+}
+
+.field-group select option {
+  background-color: #140E28;
+  color: #F8FAFC;
+}
+
+.field-group input.error {
+  border-color: #EF4444;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+}
+
+/* ── Error Message ── */
+.error-msg {
+  font-size: 12px;
+  font-weight: 600;
+  color: #FCA5A5;
+  min-height: 20px;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Button ── */
+.calc-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  /* Ultra Unique Electric Neon Gradient */
+  background: linear-gradient(135deg, #F43F5E 0%, #EC4899 50%, #8B5CF6 100%);
+  color: #FFFFFF;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.4);
+}
+
+.calc-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+  filter: brightness(1.1);
+}
+
+.calc-btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+/* ── Result Section ── */
+.result-section {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.result-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* ── Result Cards ── */
+.result-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.result-card {
+  background: #140E28; /* Contrast card block */
+  border: 1px solid #3E2F70;
+  border-radius: 14px;
+  padding: 1.1rem 0.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.result-card:hover {
+  transform: scale(1.03);
+  border-color: #EC4899;
+}
+
+.result-card .num {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #EC4899; /* Radiant Neon Pink numbers */
+  line-height: 1.1;
+  margin-bottom: 4px;
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.2);
+}
+
+.result-card .unit {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A78BFA;
+}
+
+/* ── Divider ── */
+hr {
+  border: none;
+  border-top: 1px solid #3E2F70;
+  margin: 1.5rem 0;
+}
+
+/* ── Fun Facts ── */
+.fun-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fun-fact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+}
+
+.fun-fact-row .label { 
+  color: #A78BFA; 
+}
+
+.fun-fact-row .value {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: #F8FAFC;
+}
+
+/* ── Next Birthday Box ── */
+.next-bday {
+  margin-top: 1.25rem;
+  /* Cyber Cyberpunk Cyan Accent Box for heavy color contrast */
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.05);
+}
+
+.next-bday .label { 
+  font-size: 13px; 
+  color: #22D3EE; /* Electric Cyan */
+  font-weight: 600;
+}
+
+.next-bday .days-left {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #22D3EE;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.3);
+}
+
+/* ── Credit ── */
+.credit {
+  text-align: center;
+  font-size: 11px;
+  color: #5B4E7A;
+  margin-top: 2rem;
+  letter-spacing: 0.04em;
+}
+
+.credit a {
+  color: #A78BFA;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.credit a:hover {
+  text-decoration: underline;
+  color: #EC4899;
+}

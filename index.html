@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Age Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ 
+<div class="container">
+ 
+  <div class="header">
+    <h1>How old are <em>you,</em><br>exactly?</h1>
+    <p>Enter your date of birth below</p>
+  </div>
+ 
+  <div class="dob-grid">
+    <div class="field-group">
+      <label>Day</label>
+      <input type="number" id="day" placeholder="DD" min="1" max="31" />
+    </div>
+    <div class="field-group">
+      <label>Month</label>
+      <select id="month">
+        <option value="" disabled selected>Month</option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>Year</label>
+      <input type="number" id="year" placeholder="YYYY" min="1900" max="2025" />
+    </div>
+  </div>
+ 
+  <div class="error-msg" id="error-msg"></div>
+ 
+  <button class="calc-btn" onclick="calculate()">Calculate my age</button>
+ 
+  <div class="result-section" id="result-section">
+ 
+    <div class="result-cards">
+      <div class="result-card">
+        <div class="num" id="res-years">—</div>
+        <div class="unit">Years</div>
+      </div>
+      <div class="result-card">
+        <div class="num" id="res-months">—</div>
+        <div class="unit">Months</div>
+      </div>
+      <div class="result-card">
+        <div class="num" id="res-days">—</div>
+        <div class="unit">Days</div>
+      </div>
+    </div>
+ 
+    <hr>
+ 
+    <div class="fun-facts">
+      <div class="fun-fact-row">
+        <span class="label">Total months lived</span>
+        <span class="value" id="ff-months">—</span>
+      </div>
+      <div class="fun-fact-row">
+        <span class="label">Total weeks lived</span>
+        <span class="value" id="ff-weeks">—</span>
+      </div>
+      <div class="fun-fact-row">
+        <span class="label">Total days lived</span>
+        <span class="value" id="ff-total-days">—</span>
+      </div>
+      <div class="fun-fact-row">
+        <span class="label">Total hours lived</span>
+        <span class="value" id="ff-hours">—</span>
+      </div>
+    </div>
+ 
+    <div class="next-bday">
+      <span class="label" id="bday-label">Days until next birthday</span>
+      <span class="days-left" id="ff-next-bday">—</span>
+    </div>
+ 
+  </div>
+ 
+  <div class="credit"><a href="https://www.codealpha.tech" target="_blank">codealpha.tech</a></div>
+ 
+</div>
+ 
+<script src="java.js"></script>
+</body>
+</html>
